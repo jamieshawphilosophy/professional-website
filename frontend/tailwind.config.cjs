@@ -4,9 +4,8 @@ module.exports = {
 	theme: {
 		extend: {},
 	},
-	plugins: [require('@tailwindcss/typography'), require("daisyui"),],
+	plugins: ['prettier-plugin-tailwindcss', require('@tailwindcss/typography'), require("daisyui"),],
   daisyui: {
-    themes: ["fantasy", "dark"],
-    darkTheme: "dark",
+    themes: ["emerald", "dark"],
   },
 }

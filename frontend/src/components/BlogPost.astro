@@ -8,17 +8,14 @@ export interface Props {
 }
 
 const { post } = Astro.props;
-// const blogPostBody = await convertBlockContentToMarkdown(post.bodyRaw);
 ---
 
 <Container>
-  <article class="post-content__article prose">
+  <article class="p-1 prose">
     {
       post.mainImage && (
         <img
-          width="720"
-          height="420"
-          class="post-main__img"
+          class="aspect-[3/2]"
           loading="lazy"
           src={getSanityImageURL(post.mainImage).url()}
         />
@@ -32,12 +29,4 @@ const { post } = Astro.props;
 </Container>
 
 <style>
-  .post-content__article {
-    padding: 1rem;
-  }
-
-  .post-main__img {
-    width: 100%;
-    height: auto;
-  }
 </style>
