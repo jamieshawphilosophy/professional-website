@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Page.astro";
 import Container from "../components/Container.astro";
-
+import Hero from '../components/Hero.astro';
 const seo = {
   title: "Jamie Shaw - Philosopher",
   description:
@@ -11,12 +11,6 @@ const seo = {
 
 <Layout seo={seo}>
   <Container>
-    <h1>Jamie Shaw</h1>
-    <h2>Philosopher</h2>
-    <p>
-      Hi! My name is Jamie Shaw. I am a philosopher of science. I mostly think
-      about science funding policy and Feyerabend.
-    </p>
-    <a class="link" href="/blog">Blog →</a>
+    <Hero />
   </Container>
 </Layout>
