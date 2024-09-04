@@ -50,3 +50,6 @@ pnpm-debug.log*
 
 # Dotenv and similar local-only files
 *.local
+
+# Local Netlify folder
+.netlify
