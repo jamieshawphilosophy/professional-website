@@ -3,21 +3,38 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "bunx --bun astro dev",
-    "start": "bunx --bun astro dev",
-    "build": "bunx --bun astro check && bunx --bun astro build",
-    "preview": "bunx --bun astro preview",
-    "astro": "bunx --bun astro"
+    "dev": "netlify dev",
+    "start": "netlify dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.4.1",
-    "@astrojs/mdx": "^2.1.0",
-    "@astrojs/rss": "^4.0.3",
-    "@astrojs/sitemap": "^3.0.5",
-    "astro": "^4.2.4",
-    "typescript": "^5.3.3"
+    "@astrojs/check": "^0.8.2",
+    "@astrojs/netlify": "^5.5.1",
+    "@astrojs/react": "^3.6.0",
+    "@astrojs/sitemap": "^3.1.6",
+    "@portabletext/types": "^2.0.13",
+    "@sanity/astro": "^3.1.4",
+    "@sanity/client": "^6.21.1",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/visual-editing": "^2.1.6",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "astro": "^4.12.2",
+    "astro-portabletext": "^0.10.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sanity": "^3.52.2",
+    "styled-components": "^6.1.13",
+    "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "@types/bun": "^1.1.8"
+    "@biomejs/biome": "1.8.3",
+    "@total-typescript/ts-reset": "^0.6.1",
+    "@total-typescript/tsconfig": "^1.0.4",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "vite": "^5.4.3"
   }
 }

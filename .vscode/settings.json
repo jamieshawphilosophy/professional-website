@@ -1,6 +1,9 @@
 {
-  "editor.codeActionsOnSave": {
-    
-    "quickfix.biome": "explicit"
-  }
+  "deno.enable": true,
+  "deno.enablePaths": [
+    "netlify/edge-functions"
+  ],
+  "deno.unstable": true,
+  "deno.importMap": ".netlify/edge-functions-import-map.json",
+  "deno.path": "/Users/Ben/Library/Preferences/netlify/deno-cli/deno"
 }

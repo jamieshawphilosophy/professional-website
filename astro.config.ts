@@ -1,13 +1,14 @@
-import mdx from "@astrojs/mdx";
+// astro.config.ts
+import netlify from "@astrojs/netlify";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
 import sanity from "@sanity/astro";
 import { defineConfig, envField } from "astro/config";
 import { loadEnv } from "vite";
-import { coerceBoolean } from "./src/utils/coerce-boolean";
-import { parseString } from "./src/utils/is-string";
-const mode = process.env["NODE_ENV"] || "development";
+import { coerceBoolean } from "./src/utils";
+import { parseString } from "./src/utils";
+// get the current mode from the NODE_ENV environment variable
+const mode = process.env.NODE_ENV || "development";
 
 const {
   PUBLIC_SANITY_API_VERSION,
@@ -20,6 +21,7 @@ const {
 export default defineConfig({
   output: "hybrid",
   site: "https://jamieshawphilsophy-staging.netlify.app",
+
   experimental: {
     env: {
       schema: {
@@ -47,12 +49,20 @@ export default defineConfig({
           access: "public",
           default: "/admin",
         }),
+        PUBLIC_SANITY_VISUAL_EDITING_ENABLED: envField.boolean({
+          context: "client",
+          access: "public",
+          default: true,
+        }),
+        SANITY_API_READ_TOKEN: envField.string({
+          context: "server",
+          access: "secret",
+        }),
       },
     },
   },
+
   integrations: [
-    mdx(),
-    react(),
     sitemap(),
     sanity({
       projectId: parseString(PUBLIC_SANITY_PROJECT_ID),
@@ -60,7 +70,12 @@ export default defineConfig({
       apiVersion: parseString(PUBLIC_SANITY_API_VERSION),
       useCdn: coerceBoolean(PUBLIC_SANITY_USE_CDN),
       studioBasePath: parseString(PUBLIC_SANITY_STUDIO_BASE_PATH),
+      stega: {
+        studioUrl: parseString(PUBLIC_SANITY_STUDIO_BASE_PATH),
+      },
     }),
-    tailwind(),
+    react(),
   ],
+
+  adapter: netlify(),
 });

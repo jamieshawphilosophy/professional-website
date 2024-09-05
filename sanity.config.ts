@@ -1,16 +1,20 @@
+// sanity.config.ts
+import {
+  PUBLIC_SANITY_DATASET,
+  PUBLIC_SANITY_PROJECT_ID,
+} from "astro:env/client";
 import { defineConfig } from "sanity";
+import { presentationTool } from "sanity/presentation";
 import { structureTool } from "sanity/structure";
-import { schemaTypes } from "@schema/index";
-
+import { schema } from "./src/sanity/schemaTypes";
 export default defineConfig({
-  name: "jamieShawPhilosophy",
-  title: "Jamie Shaw Philosophy",
-  projectId: import.meta.env["PUBLIC_SANITY_PROJECT_ID"],
-  dataset: import.meta.env["PUBLIC_SANITY_DATASET"],
-  apiVersion: import.meta.env["PUBLIC_SANITY_API_VERSION"],
-  useCdn: import.meta.env["PUBLIC_SANITY_USE_CDN"],
-  plugins: [structureTool()],
-  schema: {
-    types: schemaTypes,
-  },
+  projectId: PUBLIC_SANITY_PROJECT_ID,
+  dataset: PUBLIC_SANITY_DATASET,
+  plugins: [
+    structureTool(),
+    presentationTool({
+      previewUrl: location.origin,
+    }),
+  ],
+  schema,
 });
