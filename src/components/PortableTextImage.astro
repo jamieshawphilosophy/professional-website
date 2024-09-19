@@ -1,13 +1,20 @@
 ---
-import { urlForImage } from "../sanity/lib/urlForImage";
+import type { SanityAsset } from "@sanity/image-url/lib/types/types";
+import { urlForImage } from "@sanity/lib/urlForImage";
+import type { HTMLAttributes } from "astro/types";
 
-const { asset, alt } = Astro.props.node;
+interface Props extends HTMLAttributes<"picture"> {
+  asset: SanityAsset;
+  alt: string;
+};
+export interface PortableTextImageProps extends Props {};
+const { asset, alt } = Astro.props;
 
 const url = urlForImage(asset).width(800).url();
-// const webpUrl = urlForImage(asset).format("webp").url();
+const webpUrl = urlForImage(asset).format("webp").url();
 ---
 
 <picture>
-  <!-- <source srcset={webpUrl} type="image/webp" /> -->
+  <source srcset={webpUrl} type="image/webp" />
   <img class="responsive__img" src={url} alt={alt} />
 </picture>

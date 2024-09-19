@@ -1,15 +1,20 @@
 // astro.config.ts
+// Astro Integrations
 import netlify from "@astrojs/netlify";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import sanity from "@sanity/astro";
+// Astro Configuration
 import { defineConfig, envField } from "astro/config";
 import { loadEnv } from "vite";
+// Utility Functions
 import { coerceBoolean } from "./src/utils";
 import { parseString } from "./src/utils";
+
 // get the current mode from the NODE_ENV environment variable
 const mode = process.env.NODE_ENV || "development";
 
+// use Vite's loadEnv to load environment variables in Astro config
 const {
   PUBLIC_SANITY_API_VERSION,
   PUBLIC_SANITY_DATASET,
@@ -21,7 +26,7 @@ const {
 export default defineConfig({
   output: "hybrid",
   site: "https://jamieshawphilsophy-staging.netlify.app",
-
+  // experimental Astro env
   experimental: {
     env: {
       schema: {
@@ -61,7 +66,7 @@ export default defineConfig({
       },
     },
   },
-
+  // Astro Integrations
   integrations: [
     sitemap(),
     sanity({
@@ -76,6 +81,5 @@ export default defineConfig({
     }),
     react(),
   ],
-
   adapter: netlify(),
 });

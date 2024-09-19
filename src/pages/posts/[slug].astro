@@ -1,7 +1,15 @@
 ---
+// Render the page at build time.
+export const prerender = true;
+// Types
+import type { PortableTextBlock } from "@portabletext/types";
 import type { SanityDocument } from "@sanity/client";
+// Components
 import PortableText from "../../components/PortableText.astro";
+import type {PortableTextImageProps} from "../../components/PortableTextImage.astro";
+import PortableTextImage from "../../components/PortableTextImage.astro";
 import Layout from "../../layouts/Layout.astro";
+// Lib
 import { loadQuery } from "../../sanity/lib/load-query";
 
 export async function getStaticPaths() {
@@ -19,15 +27,14 @@ export async function getStaticPaths() {
 }
 
 const { params } = Astro;
-
-const { data: post } = await loadQuery<{ title: string; body: any[] }>({
+const { data: post } = await loadQuery<{ title: string; body: PortableTextBlock[]; mainImage: PortableTextImageProps}>({
   query: `*[_type == "post" && slug.current == $slug][0]`,
   params,
 });
 ---
 
 <Layout>
-  <h1>A post about {post.title}</h1>
-  <h2> slug: {params.slug}</h2>
+  <h1>{post.title}</h1>
+  <PortableTextImage asset={post.mainImage.asset} alt={post.mainImage.alt}/>
   <PortableText portableText={post.body} />
 </Layout>

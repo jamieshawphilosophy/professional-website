@@ -1,8 +1,13 @@
+// src/sanity/schemaTypes/post.ts
+
+import { ComposeIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export const postType = defineType({
+  title: "Post",
   name: "post",
   type: "document",
+  icon: ComposeIcon,
   fields: [
     defineField({
       name: "title",
@@ -22,7 +27,7 @@ export const postType = defineType({
       to: { type: "author" },
     }),
     defineField({
-      name: "mainImage",
+      name: "image",
       type: "image",
       options: {
         hotspot: true,
