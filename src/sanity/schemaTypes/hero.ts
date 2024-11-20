@@ -1,78 +1,50 @@
 // src/sanity/schemaTypes/hero.ts
-import { defineField, defineType } from "sanity";
+import { defineArrayMember, defineField, defineType } from "sanity";
 
 export const heroType = defineType({
   name: "hero",
   title: "Hero",
   type: "object",
+  description: "A hero section for page headers.",
   fields: [
     defineField({
       name: "eyebrow",
       title: "Eyebrow",
       type: "string",
-      description: "Appears above the title to grab attention.",
-      validation: (Rule) => Rule.max(40).warning("Keep the eyebrow short!"),
+      description: "Small text displayed above the main title.",
+      validation: (rule) => rule.max(40).warning("Keep the eyebrow short!"),
     }),
     defineField({
       name: "title",
       title: "Title",
       type: "string",
-      validation: (Rule) =>
-        Rule.required().max(80).warning("Keep the title short!"),
+      description: "The main heading of the hero section.",
+      validation: (rule) =>
+        rule.required().max(80).warning("Keep the title short!"),
     }),
     defineField({
       name: "subtitle",
       title: "Subtitle",
       type: "text",
       rows: 3,
-      validation: (Rule) => Rule.max(200).warning("Keep the subtitle concise!"),
+      description: "A brief description or tagline.",
+      validation: (rule) => rule.max(200).warning("Keep the subtitle concise!"),
     }),
     defineField({
       name: "image",
       title: "Hero Image",
       type: "image",
+      description: "The featured image for the hero section.",
       options: {
         hotspot: true,
       },
     }),
     defineField({
       name: "cta",
-      title: "Call to Action Buttons",
+      title: "Call to Action",
       type: "array",
-      of: [
-        {
-          type: "object",
-          fields: [
-            {
-              name: "text",
-              title: "Button Text",
-              type: "string",
-            },
-            {
-              name: "url",
-              title: "Button URL",
-              type: "url",
-              validation: (Rule) =>
-                Rule.uri({
-                  scheme: ["http", "https", "mailto", "tel"],
-                }),
-            },
-          ],
-        },
-      ],
-    }),
-    defineField({
-      name: "alignment",
-      title: "Text Alignment",
-      type: "string",
-      options: {
-        list: [
-          { title: "Left", value: "left" },
-          { title: "Center", value: "center" },
-          { title: "Right", value: "right" },
-        ],
-        layout: "radio",
-      },
+      description: "A button or link that directs users to take an action.",
+      of: [defineArrayMember({ type: "reference", to: [{ type: "cta" }] })],
     }),
   ],
   preview: {

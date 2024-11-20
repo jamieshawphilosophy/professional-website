@@ -6,7 +6,16 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title("Website Admin")
     .items([
-      S.documentTypeListItem("siteSettings").title("Site Settings"),
+      S.listItem()
+        .id("siteSettings")
+        .schemaType("siteSettings")
+        .title("Site Settings")
+        .child(
+          S.editor()
+            .id("siteSettings")
+            .schemaType("siteSettings")
+            .documentId("siteSettings")
+        ),
       S.divider(),
       S.listItem()
         .title("Content")
@@ -16,6 +25,7 @@ export const structure: StructureResolver = (S) =>
             .items([
               S.documentTypeListItem("post").title("Posts"),
               S.documentTypeListItem("page").title("Pages"),
+              S.documentTypeListItem("block").title("Blocks"),
             ])
         ),
       S.listItem()

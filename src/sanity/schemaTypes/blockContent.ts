@@ -1,4 +1,7 @@
 // src/sanity/schemaTypes/blockContent.ts
+
+// Attribution: https://www.sanity.io/guides/sanity-astro-blog#aa589ed2d5cf
+
 import { defineArrayMember, defineType } from "sanity";
 
 export const blockContentType = defineType({
@@ -20,13 +23,12 @@ export const blockContentType = defineType({
       lists: [{ title: "Bullet", value: "bullet" }],
       // Marks let you mark up inline text in the Portable Text Editor
       marks: {
-        // Decorators usually describe a single property – e.g. a typographic
-        // preference or highlighting
+        /* Decorators usually describe a single property – e.g. a typographic preference or highlighting */
         decorators: [
           { title: "Strong", value: "strong" },
           { title: "Emphasis", value: "em" },
         ],
-        // Annotations can be any object structure – e.g. a link or a footnote.
+        /* Annotations can be any object structure – e.g. a link or a footnote. */
         annotations: [
           {
             title: "URL",
@@ -43,9 +45,7 @@ export const blockContentType = defineType({
         ],
       },
     }),
-    // You can add additional types here. Note that you can't use
-    // primitive types such as 'string' and 'number' in the same array
-    // as a block type.
+    /* You can add additional types here. Note that you can't use primitive types such as 'string' and 'number' in the same array as a block type. */
     defineArrayMember({
       type: "image",
       options: { hotspot: true },
