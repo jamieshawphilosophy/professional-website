@@ -11,10 +11,10 @@
     "lint": "@biomejs/biome lint --write ./src && astro check"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.3",
-    "@astrojs/netlify": "^5.5.3",
-    "@astrojs/react": "^3.6.2",
-    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/netlify": "^6.1.0",
+    "@astrojs/react": "^4.2.0",
+    "@astrojs/sitemap": "^3.2.1",
     "@nuagedelait/sanity-pagebuilder": "^1.1.1",
     "@portabletext/types": "^2.0.13",
     "@sanity/astro": "^3.1.4",
@@ -23,10 +23,10 @@
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.57.0",
     "@sanity/visual-editing": "^2.1.6",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "astro": "^4.15.7",
-    "astro-portabletext": "^0.10.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "astro": "^5.2.3",
+    "astro-portabletext": "^0.11.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sanity": "^3.52.2",
@@ -40,6 +40,6 @@
     "astro-icon": "^1.1.1",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
-    "vite": "^5.4.3"
+    "vite": "^6.0.11"
   }
 }

@@ -11,30 +11,37 @@ export const jobType = defineType({
   fields: [
     defineField({
       name: "title",
+      title: "Job Title",
       type: "string",
     }),
     defineField({
-      name: "Institution/Company",
+      name: "organization",
+      title: "Organization/Institution/Company",
       type: "string",
     }),
     defineField({
       name: "location",
+      title: "Location",
       type: "string",
     }),
     defineField({
       name: "startDate",
+      title: "Start Date",
       type: "date",
     }),
     defineField({
       name: "endDate",
+      title: "End Date",
       type: "date",
     }),
     defineField({
       name: "description",
+      title: "Description",
       type: "text",
     }),
     defineField({
       name: "logo",
+      title: "Logo",
       type: "image",
       options: {
         hotspot: true,

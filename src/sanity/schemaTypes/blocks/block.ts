@@ -2,7 +2,7 @@ import { type Document, documentType } from "../document";
 
 export interface BlockType extends Document {}
 
-const blockType = [
+export const blockType = [
   ...documentType
     .filter((field) => field.name !== "date" && field.name !== "coverImage")
     .map((field) => {
@@ -12,6 +12,5 @@ const blockType = [
       return field;
     }),
 ];
-export default block;
 
 export const prefix = "Block | ";

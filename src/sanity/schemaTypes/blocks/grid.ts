@@ -1,14 +1,14 @@
 import { ThLargeIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
-import block, { prefix } from "./block";
+import { blockType, prefix } from "./block";
 
-const gridType = defineType({
+export const gridType = defineType({
   name: "grid",
-  title: prefix + "Grid",
+  title: `${prefix}Grid`,
   icon: ThLargeIcon,
   type: "document",
   fields: [
-    ...block,
+    ...blockType,
     defineField({
       name: "type",
       title: "Content type",
@@ -45,5 +45,3 @@ const gridType = defineType({
     },
   },
 });
-
-export default grid;

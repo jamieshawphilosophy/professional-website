@@ -24,46 +24,43 @@ const {
 } = loadEnv(mode, process.cwd(), "");
 // https://astro.build/config
 export default defineConfig({
-  output: "hybrid",
+  output: "server",
   site: "https://jamieshawphilsophy-staging.netlify.app",
-  // experimental Astro env
-  experimental: {
-    env: {
-      schema: {
-        PUBLIC_SANITY_PROJECT_ID: envField.string({
-          context: "client",
-          access: "public",
-        }),
-        PUBLIC_SANITY_DATASET: envField.string({
-          context: "client",
-          access: "public",
-          default: "production",
-        }),
-        PUBLIC_SANITY_API_VERSION: envField.string({
-          context: "client",
-          access: "public",
-          default: "2024-05-09",
-        }),
-        PUBLIC_SANITY_USE_CDN: envField.boolean({
-          context: "client",
-          access: "public",
-          default: false,
-        }),
-        PUBLIC_SANITY_STUDIO_BASE_PATH: envField.string({
-          context: "client",
-          access: "public",
-          default: "/admin",
-        }),
-        PUBLIC_SANITY_VISUAL_EDITING_ENABLED: envField.boolean({
-          context: "client",
-          access: "public",
-          default: true,
-        }),
-        SANITY_API_READ_TOKEN: envField.string({
-          context: "server",
-          access: "secret",
-        }),
-      },
+  env: {
+    schema: {
+      PUBLIC_SANITY_PROJECT_ID: envField.string({
+        context: "client",
+        access: "public",
+      }),
+      PUBLIC_SANITY_DATASET: envField.string({
+        context: "client",
+        access: "public",
+        default: "production",
+      }),
+      PUBLIC_SANITY_API_VERSION: envField.string({
+        context: "client",
+        access: "public",
+        default: "2024-05-09",
+      }),
+      PUBLIC_SANITY_USE_CDN: envField.boolean({
+        context: "client",
+        access: "public",
+        default: false,
+      }),
+      PUBLIC_SANITY_STUDIO_BASE_PATH: envField.string({
+        context: "client",
+        access: "public",
+        default: "/admin",
+      }),
+      PUBLIC_SANITY_VISUAL_EDITING_ENABLED: envField.boolean({
+        context: "client",
+        access: "public",
+        default: true,
+      }),
+      SANITY_API_READ_TOKEN: envField.string({
+        context: "server",
+        access: "secret",
+      }),
     },
   },
   // Astro Integrations
