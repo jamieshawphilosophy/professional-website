@@ -23,11 +23,6 @@ export const headerType = defineType({
       to: [{ type: "menu" }],
     }),
     defineField({
-      name: "siteTitle",
-      title: "Site Title",
-      type: "string",
-    }),
-    defineField({
       name: "logo",
       title: "Logo",
       type: "image",

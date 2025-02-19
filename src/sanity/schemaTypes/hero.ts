@@ -35,9 +35,6 @@ export const heroType = defineType({
       title: "Hero Image",
       type: "image",
       description: "The featured image for the hero section.",
-      options: {
-        hotspot: true,
-      },
     }),
     defineField({
       name: "cta",

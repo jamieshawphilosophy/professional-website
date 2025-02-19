@@ -1,6 +1,11 @@
 // src/sanity/structure/content.ts
 
-import { DocumentIcon, InsertAboveIcon, InsertBelowIcon } from "@sanity/icons";
+import {
+  DocumentIcon,
+  EarthGlobeIcon,
+  InsertAboveIcon,
+  InsertBelowIcon,
+} from "@sanity/icons";
 import type { StructureBuilder } from "sanity/structure";
 import { blocks } from "./blocks.ts";
 import type { CustomSchemaTypes } from "./index.ts";
@@ -16,13 +21,15 @@ export const content = (customSchemaTypes: CustomSchemaTypes) => {
       .child(
         S.list()
           .id("_content")
+          .title("Content")
           .items([
             S.listItem()
-              .title("Misc")
-              .id("item-misc")
+              .title("Site-wide Header and Footer")
+              .icon(EarthGlobeIcon)
+              .id("item-header-and-footer-site-wide")
               .child(
                 S.list()
-                  .id("list-misc")
+                  .id("item-header-and-footer-site-wide")
                   .items([
                     S.listItem()
                       .title("Global Header")

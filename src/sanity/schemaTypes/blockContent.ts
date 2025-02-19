@@ -3,7 +3,7 @@
 // Attribution: https://www.sanity.io/guides/sanity-astro-blog#aa589ed2d5cf
 
 import { defineArrayMember, defineType } from "sanity";
-
+import { imageType } from "./image";
 export const blockContentType = defineType({
   title: "Block Content",
   name: "blockContent",
@@ -47,15 +47,7 @@ export const blockContentType = defineType({
     }),
     /* You can add additional types here. Note that you can't use primitive types such as 'string' and 'number' in the same array as a block type. */
     defineArrayMember({
-      type: "image",
-      options: { hotspot: true },
-      fields: [
-        {
-          name: "alt",
-          type: "string",
-          title: "Alternative Text",
-        },
-      ],
+      ...imageType,
     }),
   ],
 });

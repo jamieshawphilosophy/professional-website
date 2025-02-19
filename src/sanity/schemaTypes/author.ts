@@ -8,14 +8,18 @@ export const authorType = defineType({
   title: "Author",
   type: "document",
   icon: UserIcon,
+  description: "Author profiles for blog posts and publications",
   fields: [
     defineField({
       name: "name",
       type: "string",
+      description: "Author's full name",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "slug",
       type: "slug",
+      description: "Unique URL-friendly identifier for the author",
       options: {
         source: "name",
         maxLength: 96,
@@ -24,20 +28,12 @@ export const authorType = defineType({
     defineField({
       name: "image",
       type: "image",
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        {
-          name: "alt",
-          type: "string",
-          title: "Alternative Text",
-        },
-      ],
+      description: "Profile photo of the author",
     }),
     defineField({
       name: "bio",
       type: "array",
+      description: "Brief biography or introduction of the author",
       of: [
         {
           type: "block",

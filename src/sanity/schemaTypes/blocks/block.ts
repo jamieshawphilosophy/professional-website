@@ -1,13 +1,12 @@
-import { type Document, documentType } from "../document";
-
-export interface BlockType extends Document {}
+import { documentType } from "../document";
 
 export const blockType = [
   ...documentType
     .filter((field) => field.name !== "date" && field.name !== "coverImage")
     .map((field) => {
-      if (field.name === "image" || field.name === "description") {
-        field.validation = undefined;
+      if (field.name === "description") {
+        const { validation, ...rest } = field;
+        return rest;
       }
       return field;
     }),

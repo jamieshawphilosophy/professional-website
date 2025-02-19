@@ -1,36 +1,22 @@
 // src/sanity/schemaTypes/image.ts
 
 // Attribution: https://github.com/nuagedelait/sanity-pagebuilder/
+import { defineField, defineType } from "sanity";
 
-export interface ImageType {
-  type: string;
-  name: string;
-  fields: {
-    name: string;
-    title: string;
-    description: string;
-    type: string;
-  }[];
-  options: {
-    hotspot: boolean;
-    storeOriginalFilename: boolean;
-  };
-}
-
-export const imageType: ImageType = {
+export const imageType = defineType({
+  name: "imageWithAlt",
+  title: "Image",
   type: "image",
-  name: "image",
   fields: [
-    {
+    defineField({
       name: "alt",
-      title: "Alternative text",
-      description:
-        "Optional. Consider adding alternative text to make content more accessible.",
+      title: "Alternative Text for accessibility",
       type: "string",
-    },
+      description:
+        "Optional. If the caption above is descriptive enough, there's no need to fill this field. Else, consider adding alternative text to make content more accessible.",
+    }),
   ],
   options: {
     hotspot: true,
-    storeOriginalFilename: false,
   },
-};
+});

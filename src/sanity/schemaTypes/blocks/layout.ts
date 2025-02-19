@@ -1,5 +1,4 @@
-import { defineType } from "sanity";
-import { imageType } from "../image";
+import { defineField, defineType } from "sanity";
 import { blockType, prefix } from "./block";
 
 export const layoutType = defineType({
@@ -8,39 +7,37 @@ export const layoutType = defineType({
   type: "document",
   fields: [
     ...blockType,
-    {
+    defineField({
       name: "subtitle",
       title: "Subtitle",
       type: "text",
-    },
-    {
-      title: "Images",
+      description: "Optional subtitle text for the layout block",
+    }),
+    defineField({
       name: "images",
+      title: "Images",
       type: "array",
-      of: [
-        {
-          ...imageType,
-        },
-      ],
-    },
-    {
-      title: "layout",
+      of: [{ type: "imageWithAlt" }],
+      description: "Add one or more images to the layout",
+    }),
+    defineField({
       name: "layout",
+      title: "Layout Style",
       type: "string",
       options: {
         list: ["basic"],
+        layout: "radio",
       },
-    },
-    {
-      title: "buttons",
+      description: "Choose the layout style for this block",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "buttons",
+      title: "Buttons",
       type: "array",
-      of: [
-        {
-          type: "link",
-        },
-      ],
-    },
+      of: [{ type: "cta" }],
+      description: "Add call-to-action buttons",
+    }),
   ],
   preview: {
     select: {
@@ -48,7 +45,7 @@ export const layoutType = defineType({
       subtitle: "subtitle",
       description: "description",
       layout: "layout",
-      media: "image",
+      media: "images.0",
     },
     prepare(selection) {
       const { title, subtitle, description, layout } = selection;
@@ -56,7 +53,7 @@ export const layoutType = defineType({
       const _subTitle = _title === "" && subtitle ? ` ${subtitle}` : "";
       const _description =
         _title === "" && _subTitle === "" && description
-          ? ` ${description.substr(0, 20)}...`
+          ? ` ${description.slice(0, 20)}...`
           : "";
 
       return {

@@ -7,7 +7,7 @@ import { parseString } from "@utils/is-string";
 import { defineField } from "sanity";
 import { imageType } from "./image";
 
-export interface Document {
+export interface DocumentType {
   id: string;
   slug: {
     current?: string;
@@ -51,6 +51,7 @@ export const documentType = [
   }),
   defineField({
     ...imageType,
+    name: "coverImage",
     validation: (rule) => rule.required(),
   }),
 ];

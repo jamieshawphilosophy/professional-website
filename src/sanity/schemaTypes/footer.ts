@@ -2,7 +2,7 @@
 
 import { defineField, defineType } from "sanity";
 
-export const Footer = defineType({
+export const footerType = defineType({
   name: "footer",
   title: "Footer",
   icon: "",
@@ -19,7 +19,6 @@ export const Footer = defineType({
       name: "logo",
       title: "Logo",
       type: "image",
-      options: { hotspot: true },
     }),
     defineField({
       name: "menu",

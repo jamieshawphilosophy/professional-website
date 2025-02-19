@@ -19,7 +19,16 @@ const customSchemaTypes: {
     "publication",
     "researchInterest",
   ],
-  blocks: ["header", "footer", "blockContent", "image"],
+  blocks: [
+    "header",
+    "footer",
+    "blockContent",
+    "imageWithAlt",
+    "grid",
+    "layout",
+    "menu",
+    "tabs",
+  ],
 };
 export type CustomSchemaTypes = typeof customSchemaTypes;
 
