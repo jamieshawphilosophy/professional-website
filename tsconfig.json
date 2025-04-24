@@ -48,7 +48,7 @@
     // Report an error for unused labels instead of just a warning.
     "allowUnusedLabels": false,
     "experimentalDecorators": true,
-    "allowJs": true,
+    "allowJs": false,
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
@@ -56,8 +56,7 @@
       "@layouts/*": ["src/layouts/*"],
       "@images/*": ["src/images/*"],
       "@assets/*": ["public/assets/*"],
-      "@utils/*": ["src/utils/*"],
-      "@sanity/*": ["src/sanity/*"]
+      "@utils/*": ["src/utils/*"]
     }
   }
 }

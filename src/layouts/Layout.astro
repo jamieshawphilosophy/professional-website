@@ -1,6 +1,4 @@
 ---
-import {PUBLIC_SANITY_VISUAL_EDITING_ENABLED} from "astro:env/client";
-import { VisualEditing } from "@sanity/astro/visual-editing";
 export type props = {
   title: string;
 };
@@ -17,6 +15,5 @@ const { title } = Astro.props;
   </head>
   <body>
     <slot />
-    <VisualEditing enabled={PUBLIC_SANITY_VISUAL_EDITING_ENABLED} />
   </body>
 </html>
