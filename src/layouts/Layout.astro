@@ -1,12 +1,12 @@
 ---
 import Head from "@components/head/Head.astro";
-import {} from "@src/consts.ts";
+import {SITE_DESCRIPTION, SITE_TITLE } from "@src/consts.ts";
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <Head />
+    <Head title={SITE_TITLE} description={SITE_DESCRIPTION}/>
   </head>
   <body>
     <slot />
