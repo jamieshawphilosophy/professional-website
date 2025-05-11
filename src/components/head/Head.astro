@@ -1,7 +1,9 @@
 ---
+import type { Site } from "@src/types.ts";
+
 interface Props {
-  title: string;
-  description: string;
+  title: Site["title"];
+  description: Site["desc"];
 }
 const { title, description } = Astro.props;
 /* todo: Add more meta tags, JSONL schema, open graph, etc. */
