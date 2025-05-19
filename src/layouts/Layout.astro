@@ -1,13 +1,16 @@
 ---
 import Head from "@components/head/Head.astro";
-import {SITE_DESCRIPTION, SITE_TITLE } from "@src/consts.ts";
+import { SITE } from "@src/config.ts";
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <Head title={SITE_TITLE} description={SITE_DESCRIPTION}/>
-  </head>
+  <Head
+    title={SITE.title}
+    description={SITE.desc}
+    image={SITE.ogImage}
+    url={SITE.website}
+    author={SITE.author}
+    ></Head>
   <body>
     <slot />
   </body>

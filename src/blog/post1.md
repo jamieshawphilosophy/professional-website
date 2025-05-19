@@ -9,6 +9,5 @@ featured: boolean
 draft: boolean
 tags: boolean
 description: string
-body: rich-text
 ---
 
