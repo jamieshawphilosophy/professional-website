@@ -1,4 +1,4 @@
-import type { Site, SocialObjects } from "./types";
+import type { Site } from "./types";
 
 export const SITE: Site = {
   website: "https://jamieshawphilosophy-staging.netlify.app",
@@ -23,59 +23,17 @@ export const LOGO_IMAGE = {
   height: 46,
 };
 
-export const SOCIALS: SocialObjects = [
+export const SOCIALS = [
   {
     name: "Facebook",
     href: "https://github.com/satnaing/astro-paper",
-    linkTitle: `${SITE.title} on Facebook`,
-    active: true,
-  },
-  {
-    name: "Instagram",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: `${SITE.author} on Instagram`,
+    linkTitle: `${SITE.author} on Facebook`,
     active: true,
   },
   {
     name: "LinkedIn",
     href: "https://github.com/satnaing/astro-paper",
     linkTitle: `${SITE.author} on LinkedIn`,
-    active: true,
-  },
-  {
-    name: "Mail",
-    href: "mailto:yourmail@gmail.com",
-    linkTitle: `Send an email to ${SITE.author}`,
-    active: false,
-  },
-  {
-    name: "Twitter",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: `${SITE.author} on Twitter`,
-    active: false,
-  },
-  {
-    name: "Twitch",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: `${SITE.author} on Twitch`,
-    active: false,
-  },
-  {
-    name: "YouTube",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: `${SITE.author} on YouTube`,
-    active: false,
-  },
-  {
-    name: "WhatsApp",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: `${SITE.author} on WhatsApp`,
-    active: false,
-  },
-  {
-    name: "Discord",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: `${SITE.author} on Discord`,
     active: false,
   },
 ];
