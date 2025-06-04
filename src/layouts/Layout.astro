@@ -3,7 +3,7 @@ import Head from "@components/Head.astro";
 import { SITE } from "@src/config.ts";
 import "../styles/index.css";
 import { allDefined } from '/dist/webawesome.js';
-const loaded = await allDefined();
+export const loaded = await allDefined();
 ---
 <html lang="en">
   <Head
@@ -16,13 +16,4 @@ const loaded = await allDefined();
   <body>
     <slot></slot>
   </body>
-  <script>
-    // This script is used to ensure that the WebAwesome library is loaded
-    // before any components that depend on it are rendered.
-    if (typeof window !== "undefined") {
-      window.addEventListener("load", () => {
-        console.log("WebAwesome library loaded successfully.");
-      });
-    }
-  </script>
 </html>
