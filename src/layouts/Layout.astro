@@ -1,10 +1,8 @@
 ---
 import Head from "@components/Head.astro";
 import { SITE } from "@src/config.ts";
-import "../styles/index.css";
-import { allDefined } from '/dist/webawesome.js';
-export const loaded = await allDefined();
 ---
+
 <html lang="en">
   <Head
     title={SITE.title}
@@ -12,8 +10,8 @@ export const loaded = await allDefined();
     image={SITE.ogImage}
     url={SITE.website}
     author={SITE.author}
-    ></Head>
+  />
   <body>
-    <slot></slot>
+    <slot />
   </body>
 </html>

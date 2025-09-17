@@ -51,6 +51,7 @@
     "allowUnusedLabels": false,
     "experimentalDecorators": true,
     "allowJs": false,
+    "erasableSyntaxOnly": true,
     "baseUrl": ".",
     "paths": {
       "@src/*": ["src/*"],

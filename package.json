@@ -13,24 +13,19 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/react": "^4.3.0",
-    "@astrojs/sitemap": "^3.4.0",
-    "@netlify/functions": "^3.1.8",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
-    "astro": "^5.8.1",
-    "esbuild": "^0.25.3",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "typescript": "^5.5.4"
+    "@astrojs/react": "^4.3.1",
+    "@astrojs/sitemap": "^3.6.0",
+    "@netlify/functions": "^3.1.10",
+    "astro": "^5.13.8",
+    "esbuild": "^0.25.10",
+    "typescript": "^5.9.2"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@total-typescript/ts-reset": "^0.6.1",
     "@total-typescript/tsconfig": "^1.0.4",
-    "astro-icon": "^1.1.1",
-    "prettier": "^3.3.3",
+    "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
-    "vite": "^6.0.11"
+    "vite": "^6.3.6"
   }
 }
