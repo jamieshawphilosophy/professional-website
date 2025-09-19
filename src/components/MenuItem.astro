@@ -4,15 +4,11 @@ import type { HTMLAttributes } from "astro/types";
 interface Props extends HTMLAttributes<"li"> {
   href: string;
   active?: boolean;
-  icon?: string;
-  label: string;
 }
-const { href, active, icon, label } = Astro.props;
+const { href, active } = Astro.props;
 ---
-
 <li>
-  <a href={href} class:list={[active ? "active" : "", icon ? "has-icon" : ""]}>
-    <slot name="icon" />
-    {label}
+  <a href={href} class:list={[active ? "active" : ""]}>
+    <slot />
   </a>
 </li>

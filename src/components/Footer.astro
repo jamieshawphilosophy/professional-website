@@ -1,0 +1,13 @@
+---
+/* Footer component */
+import type { HTMLAttributes } from "astro/types";
+interface Props extends HTMLAttributes<"footer"> {}
+---
+<footer>
+  <p>
+    &copy; {new Date().getFullYear()} Jamie Shaw. All rights reserved.
+  </p>
+  <p>
+    Site designed and developed by <a href="https://www.benbourgon.com">Ben Bourgon</a>
+  </p>
+</footer>

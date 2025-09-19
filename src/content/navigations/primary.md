@@ -1,0 +1,23 @@
+---
+name: primary
+links:
+  - label: home
+    href: #
+    active: true
+    external: false
+  - label: research
+    href: #research
+    active: false
+    external: false
+  - label: publications
+    href: #publications
+    active: false
+    external: false
+  - label: teaching
+    href: #teaching
+    active: false
+    external: false
+  - label: contact
+    href: #contact
+    active: false
+    external: false

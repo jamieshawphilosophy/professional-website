@@ -1,4 +1,4 @@
-import type { Site } from "./types";
+import type { Locale, Site } from "./types";
 
 export const SITE: Site = {
   website: "https://jamieshawphilosophy-staging.netlify.app",
@@ -10,7 +10,7 @@ export const SITE: Site = {
   postPerPage: 3,
 } as const;
 
-export const LOCALE = {
-  lang: "en", // html lang code. Set this empty and default will be "en"
-  langTag: ["en-EN"], // BCP 47 Language Tags. Set this empty [] to use the environment default
+export const LOCALE: Locale = {
+  lang: "en",
+  langTag: ["en-EN"]
 } as const;

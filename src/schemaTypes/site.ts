@@ -8,10 +8,3 @@ export const SiteSchema = z.object({
   lightAndDarkMode: z.boolean(),
   postPerPage: z.number().min(1).default(3),
 });
-export type Site = z.infer<typeof SiteSchema>;
-
-export const LocaleSchema = z.object({
-  lang: z.string().min(2).max(10).default("en"),
-  langTag: z.array(z.string()).default(["en-EN"]),
-});
-export type Locale = z.infer<typeof LocaleSchema>;

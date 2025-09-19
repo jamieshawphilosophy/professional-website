@@ -1,0 +1,16 @@
+---
+/* Header Navigation component */
+import type { HTMLAttributes } from "astro/types";
+import MenuItem from "@components/MenuItem.astro";
+interface Props extends HTMLAttributes<"nav"> {}
+---
+
+<nav>
+  <ul>
+    <MenuItem href="#" active>home</MenuItem>
+    <MenuItem href="#research">research</MenuItem>
+    <MenuItem href="#publications">publications</MenuItem>
+    <MenuItem href="#teaching">teaching</MenuItem>
+    <MenuItem href="#contact">contact</MenuItem>
+  </ul>
+</nav>
