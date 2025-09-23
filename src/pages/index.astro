@@ -1,13 +1,15 @@
 ---
-import About from "@src/components/About.astro"
-import Hero from "@src/components/Hero.astro"
-import Publications from "@src/components/Publications.astro"
-import ResearchInterests from "@src/components/ResearchInterests.astro"
-import Teaching from "@src/components/Teaching.astro"
-import Layout from "@src/layouts/Layout.astro"
+import { getEntry } from "astro:content";
+import About from "@src/components/About.astro";
+import Hero from "@src/components/Hero.astro";
+import Publications from "@src/components/Publications.astro";
+import ResearchInterests from "@src/components/ResearchInterests.astro";
+import Teaching from "@src/components/Teaching.astro";
+import Layout from "@src/layouts/Layout.astro";
+const heroData = await getEntry("heroes", "default");
 ---
 <Layout>
-  <Hero />
+  <Hero/>
   <ResearchInterests />
   <Publications />
   <Teaching />

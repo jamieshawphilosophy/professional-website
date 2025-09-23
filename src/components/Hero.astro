@@ -1,10 +1,15 @@
 ---
 /* Hero section */
 import type { HTMLAttributes } from "astro/types"
-interface Props extends HTMLAttributes<"section"> {}
+interface Props extends HTMLAttributes<"section"> {
+  title: string;
+  subtitle: string;
+  body: string;
+}
+const { title, subtitle, body } = Astro.props;
 ---
-<section id="hero-section">
-  <h1>Jamie Shaw</h1>
-  <h2>philosopher</h2>
-  <p>Exploring the depths of thought and reason.</p>
+<section id="hero-section" {...Astro.props}>
+  <h1>{title}</h1>
+  <h2>{subtitle}</h2>
+  <p>{body}</p>
 </section>

@@ -18,6 +18,7 @@ const navigations = defineCollection({
   schema: NavigationSchema,
   loader: glob({ pattern: "*.md", base: "./src/content/navigations" }),
 });
+
 const heroes = defineCollection({
   schema: HeroSchema,
   loader: glob({ pattern: "*.md", base: "./src/content/heroes" }),
