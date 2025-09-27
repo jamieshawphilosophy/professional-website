@@ -1,21 +1,13 @@
 ---
-import Head from "@components/Head.astro";
-import Header from "@components/Header.astro";
+import { getEntry } from "astro:content";
 import Footer from "@components/Footer.astro";
-import { SITE } from "@src/config.ts";
+import Header from "@components/Header.astro";
+const headerRes = await getEntry("headers", "primary");
+if (!headerRes) {
+  throw new Error("Header data not found");
+}
+const headerData = headerRes.data;
 ---
-
-<html lang="en">
-  <Head
-    title={SITE.title}
-    description={SITE.desc}
-    image={SITE.ogImage}
-    url={SITE.website}
-    author={SITE.author}
-  />
-  <body>
-    <Header/>
-      <slot />
+    <Header data={headerData} />
+      <slot/>
     <Footer />
-  </body>
-</html>

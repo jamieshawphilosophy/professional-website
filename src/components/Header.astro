@@ -1,9 +1,23 @@
 ---
 /* Header component */
+/* Libraries */
+import { getEntry } from "astro:content";
+/* Types */
+import type { CollectionEntry } from "astro:content";
 import type { HTMLAttributes } from "astro/types";
-interface Props extends HTMLAttributes<"header"> {}
-import HeaderNav from "./HeaderNav.astro"
+interface Props extends HTMLAttributes<"header"> {
+  data: CollectionEntry<"headers">["data"];
+}
+/* Components */
+import HeaderNav from "./HeaderNav.astro";
+
+if (!Astro.props) {
+  throw new Error("No header data provided to Header component");
+}
+const headerNavRes = await getEntry(Astro.props.data.navigation);
 ---
+
 <header>
-  <HeaderNav />
+  <h4>{Astro.props.data.initials}</h4>
+  <HeaderNav data={headerNavRes.data} />
 </header>

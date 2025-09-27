@@ -2,27 +2,27 @@
 import { defineCollection } from "astro:content";
 
 // 2. Import loader(s)
-import { file, glob } from "astro/loaders";
+import { glob } from "astro/loaders";
 
 // 3. Define your collection(s)
-import { HeaderSchema } from "./schemaTypes/header.ts";
-import {HeroSchema} from "./schemaTypes/hero.ts";
-import {NavigationSchema} from "./schemaTypes/navigation.ts"
+import { headerSchema } from "./schemaTypes/header.ts";
+import { heroSchema } from "./schemaTypes/hero.ts";
+import { navigationSchema } from "./schemaTypes/navigation.ts"
 
-const header = defineCollection({
-  schema: HeaderSchema,
-  loader: file("./src/content/header.md"),
+const headers = defineCollection({
+  loader: glob({pattern: "**/*.yaml", base: "./src/content/headers/" }),
+  schema: HeaderSchema
 });
 
 const navigations = defineCollection({
-  schema: NavigationSchema,
-  loader: glob({ pattern: "*.md", base: "./src/content/navigations" }),
+  loader: glob({ pattern: "**/*.yaml", base: "./src/content/navigations/" }),
+  schema: NavigationSchema
 });
 
 const heroes = defineCollection({
-  schema: HeroSchema,
-  loader: glob({ pattern: "*.md", base: "./src/content/heroes" }),
+  loader: glob({ pattern: "**/*.md", base: "./src/content/heroes/" }),
+  schema: HeroSchema
 });
 
-// 4. Export a single `collections` object to register your collection(s)
-export const collections = { header, navigations, heroes };
+// 4. Export a single `collections` object to register your collections
+export const collections = { headers, navigations, heroes };

@@ -1,15 +1,23 @@
 ---
 /* Hero section */
+
+/* Types */
+import type {CollectionEntry} from "astro:content"
 import type { HTMLAttributes } from "astro/types"
-interface Props extends HTMLAttributes<"section"> {
-  title: string;
-  subtitle: string;
-  body: string;
+/* Props */
+interface Props extends HTMLAttributes<"section">{
+  data: CollectionEntry<"heroes">
 }
-const { title, subtitle, body } = Astro.props;
+const heroEntry = Astro.props.data
+const body = heroEntry.body
+const {title, subtitle, featuredImage, cv} = heroEntry.data
 ---
-<section id="hero-section" {...Astro.props}>
-  <h1>{title}</h1>
-  <h2>{subtitle}</h2>
-  <p>{body}</p>
+<section id="hero-section">
+  <div>
+    <h1>{title}</h1>
+    <h2>{subtitle}</h2>
+  </div>
+  <div><img src={featuredImage.src} alt={featuredImage.alt}/></div>
+  <a href={cv.src}>{cv.label}</a>
+  {body ? <p>{body}</p> : ""}
 </section>

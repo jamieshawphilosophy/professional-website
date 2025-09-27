@@ -1,0 +1,14 @@
+---
+import Head from "@components/Head.astro";
+import { SITE } from "@src/config.ts";
+import '../styles/global.css'
+---
+
+<html lang="en">
+  <Head
+    data={SITE}
+  />
+  <body>
+    <slot/>
+  </body>
+</html>

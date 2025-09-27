@@ -1,17 +1,24 @@
 ---
+/* pages/index.astro */
+/* Libraries */
 import { getEntry } from "astro:content";
+/* Components */
 import About from "@src/components/About.astro";
 import Hero from "@src/components/Hero.astro";
 import Publications from "@src/components/Publications.astro";
 import ResearchInterests from "@src/components/ResearchInterests.astro";
 import Teaching from "@src/components/Teaching.astro";
+import BaseLayout from "@src/layouts/BaseLayout.astro";
 import Layout from "@src/layouts/Layout.astro";
-const heroData = await getEntry("heroes", "default");
+const heroData = await getEntry("heroes", "home-hero");
+if (!heroData) throw new Error("could not get heroData")
 ---
+<BaseLayout>
 <Layout>
-  <Hero/>
+  <Hero data={heroData} />
   <ResearchInterests />
   <Publications />
   <Teaching />
   <About />
 </Layout>
+</BaseLayout>

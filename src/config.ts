@@ -1,9 +1,9 @@
-import type { Locale, Site } from "./types";
-
+import type { Locale } from "@src/schemaTypes/locale.ts"
+import type { Site } from "@src/schemaTypes/site.ts";
 export const SITE: Site = {
   website: "https://jamieshawphilosophy-staging.netlify.app",
   author: "jamie shaw",
-  desc: "jamie shaw's personal website and blog",
+  description: "jamie shaw's personal website and blog",
   title: "jamie shaw philosophy",
   ogImage: "jamie-shaw-og.jpg",
   lightAndDarkMode: true,
