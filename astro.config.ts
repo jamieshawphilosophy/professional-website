@@ -7,7 +7,7 @@ import { SITE } from "./src/config";
 import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
-  output: "static",
+	output: "static",
   site: SITE.website,
 
   // Astro Integrations

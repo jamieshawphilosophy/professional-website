@@ -7,5 +7,6 @@
     "nuagedelait",
     "Redirections",
     "stega"
-  ]
+  ],
+  "editor.defaultFormatter": "biomejs.biome"
 }

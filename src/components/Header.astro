@@ -18,6 +18,6 @@ const headerNavRes = await getEntry(Astro.props.data.navigation);
 ---
 
 <header>
-  <h4>{Astro.props.data.initials}</h4>
+  <h4 class="text-3xl text-emerald-900">{Astro.props.data.initials}</h4>
   <HeaderNav data={headerNavRes.data} />
 </header>

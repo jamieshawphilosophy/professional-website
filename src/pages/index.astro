@@ -2,6 +2,7 @@
 /* pages/index.astro */
 /* Libraries */
 import { getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 /* Components */
 import About from "@src/components/About.astro";
 import Hero from "@src/components/Hero.astro";
@@ -11,12 +12,14 @@ import Teaching from "@src/components/Teaching.astro";
 import BaseLayout from "@src/layouts/BaseLayout.astro";
 import Layout from "@src/layouts/Layout.astro";
 const heroData = await getEntry("heroes", "home-hero");
-if (!heroData) throw new Error("could not get heroData")
+if (!heroData) throw new Error("heroData is null or undefined")
+const researchInterestsData = await getCollection("researchInterests")
+if (!researchInterestsData) throw new Error("researchInterestsData is null or undefined")
 ---
 <BaseLayout>
 <Layout>
   <Hero data={heroData} />
-  <ResearchInterests />
+  <ResearchInterests data={researchInterestsData} />
   <Publications />
   <Teaching />
   <About />
