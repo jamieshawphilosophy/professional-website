@@ -29,17 +29,17 @@ const { title, subtitle, featuredImage, cv } = heroEntry.data;
         {
           body ? (
             <p class="text-foreground text-xl leading-relaxed">{body}</p>
-          ) : (
-            ""
-          )
+          ) : null
         }
-        <Button
-          href={cv.src}
-          variant="primary"
-          class="inline-flex rounded-none"
-        >
-          {cv.label}<MoveUpRight />
-        </Button>
+        <div class="flex flex-col lg:max-w-42">
+          <Button
+            href={cv.src}
+            variant="primary"
+            class="inline-flex rounded-none capitalize"
+          >
+            {cv.label}<MoveUpRight />
+          </Button>
+        </div>
       </div>
       <Card
         class="bg-background flex flex-col gap-6 rounded-xl border p-8 shadow-sm"

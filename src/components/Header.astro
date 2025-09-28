@@ -17,6 +17,6 @@ if (!Astro.props) {
 const headerNavRes = await getEntry(Astro.props.data.navigation);
 ---
 
-<header class="relative">
+<header class="sticky top-0 z-50">
   <HeaderNav data={headerNavRes.data} />
 </header>

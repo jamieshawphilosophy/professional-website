@@ -6,7 +6,9 @@ import "../styles/starwind.css";
 
 <html lang={LOCALE.lang}>
   <Head data={SITE} />
-  <body class="bg-background text-foreground font-sans">
-    <slot />
+  <body class="font-sans">
+    <div class="bg-background min-h-screen">
+      <slot />
+    </div>
   </body>
 </html>

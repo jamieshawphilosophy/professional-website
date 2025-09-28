@@ -10,7 +10,7 @@ interface Props extends HTMLAttributes<"footer"> {
 import { tv } from "tailwind-variants";
 import { getEntries } from "astro:content";
 const footer = tv({
-  base: "bg-muted/50 border-t border-border py-12 px-4 sm:px-6 lg:px-8",
+  base: "bg-muted/50 border-t border-border py-12",
 });
 /* Props */
 const { class: className, data: footerData, ...rest } = Astro.props;
@@ -27,7 +27,7 @@ if (!resolvedLinks)
 <footer class={footer({ class: className })} {...rest}>
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div
-      class="grid grid-cols-1 grid-rows-2 gap-8 md:grid-cols-4 md:grid-rows-1"
+      class="grid grid-cols-1 grid-rows-2 gap-8 md:grid-cols-3 md:grid-rows-1"
     >
       <div class="space-y-4">
         <h3 class="text-foreground font-serif text-lg font-bold capitalize">
@@ -57,7 +57,7 @@ if (!resolvedLinks)
             </svg>
           </a>
         </div>
-      </div><div class="space-y-4 md:col-start-4">
+      </div><div class="space-y-4 md:col-start-3">
         <h4 class="font-semibold text-emerald-950">Connect</h4><div
           class="space-y-2"
         >
