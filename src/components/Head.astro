@@ -11,13 +11,14 @@ interface Props extends HTMLAttributes<"head"> {
     author?: string;
   };
 }
-const { title, description } = Astro.props.data
+const { title, description } = Astro.props.data;
 /**
 todo: Add more meta tags, JSONL schema, open graph, etc.
 */
 ---
+
 <head>
-  <link rel="sitemap" href="/sitemap-index.xml">
+  <link rel="sitemap" href="/sitemap-index.xml" />
   <title>{title}</title>
   <meta name="description" content={description} />
   <meta name="generator" content={Astro.generator} />

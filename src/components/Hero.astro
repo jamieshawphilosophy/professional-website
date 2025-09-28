@@ -1,23 +1,55 @@
 ---
 /* Hero section */
-
+/* Components */
+import MoveUpRight from "@lucide/astro/icons/move-up-right";
+import Button from "./starwind/button/Button.astro";
+import Card from "./starwind/card/Card.astro";
 /* Types */
-import type {CollectionEntry} from "astro:content"
-import type { HTMLAttributes } from "astro/types"
+import type { CollectionEntry } from "astro:content";
+import type { HTMLAttributes } from "astro/types";
 /* Props */
-interface Props extends HTMLAttributes<"section">{
-  data: CollectionEntry<"heroes">
+interface Props extends HTMLAttributes<"section"> {
+  data: CollectionEntry<"heroes">;
 }
-const heroEntry = Astro.props.data
-const body = heroEntry.body
-const {title, subtitle, featuredImage, cv} = heroEntry.data
+const heroEntry = Astro.props.data;
+const body = heroEntry.body;
+const { title, subtitle, featuredImage, cv } = heroEntry.data;
 ---
-<section id="hero-section">
-  <div>
-    <h1 class="text-5xl font-serif capitalize text-emerald-800">{title}</h1>
-    <h2>{subtitle}</h2>
+
+<section class="py-20" id="hero-section">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid gap-12 font-serif lg:grid-cols-2">
+      <div class="space-y-6">
+        <h1
+          class="text-foreground font-serif text-4xl leading-tight font-bold capitalize lg:text-5xl"
+        >
+          {title}
+          <span class="text-primary">{subtitle}</span>
+        </h1>
+        {
+          body ? (
+            <p class="text-foreground text-xl leading-relaxed">{body}</p>
+          ) : (
+            ""
+          )
+        }
+        <Button
+          href={cv.src}
+          variant="primary"
+          class="inline-flex rounded-none"
+        >
+          {cv.label}<MoveUpRight />
+        </Button>
+      </div>
+      <Card
+        class="bg-background flex flex-col gap-6 rounded-xl border p-8 shadow-sm"
+      >
+        <img
+          class="h-auto w-full rounded-lg shadow-lg"
+          src={featuredImage.src}
+          alt={featuredImage.alt}
+        />
+      </Card>
+    </div>
   </div>
-  <div><img src={featuredImage.src} alt={featuredImage.alt}/></div>
-  <a href={cv.src}>{cv.label}</a>
-  {body ? <p>{body}</p> : ""}
 </section>

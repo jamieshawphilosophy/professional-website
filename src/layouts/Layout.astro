@@ -3,11 +3,20 @@ import { getEntry } from "astro:content";
 import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
 const headerRes = await getEntry("headers", "primary");
+const footerRes = await getEntry("footers", "primary");
 if (!headerRes) {
-  throw new Error("Header data not found");
+  throw new Error("Header query response not found");
+}
+if (!footerRes) {
+  throw new Error("Footer query response not found");
 }
 const headerData = headerRes.data;
 ---
-    <Header data={headerData} />
-      <slot/>
-    <Footer />
+
+<Fragment>
+  <Header data={headerData} />
+  <main>
+    <slot />
+  </main>
+  <Footer data={footerRes} />
+</Fragment>

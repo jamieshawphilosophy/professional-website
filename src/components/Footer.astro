@@ -1,27 +1,92 @@
 ---
 /* Footer component */
+/* Types */
+import type { CollectionEntry } from "astro:content";
 import type { HTMLAttributes } from "astro/types";
-interface Props extends HTMLAttributes<"footer"> {}
+interface Props extends HTMLAttributes<"footer"> {
+  data: CollectionEntry<"footers">;
+}
+/* Styling */
+import { tv } from "tailwind-variants";
+import { getEntries } from "astro:content";
+const footer = tv({
+  base: "bg-muted/50 border-t border-border py-12 px-4 sm:px-6 lg:px-8",
+});
+/* Props */
+const { class: className, data: footerData, ...rest } = Astro.props;
+const { body, data } = footerData;
+const { title, links, email } = data;
+const resolvedLinks = await getEntries(links);
+if (!resolvedLinks)
+  throw new Error(
+    "could not resolve references to footer links, got",
+    resolvedLinks,
+  );
 ---
-<footer class="bg-muted/50 border-t border-border py-12 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-6xl mx-auto">
-    <div class="grid md:grid-cols-4 gap-8">
+
+<footer class={footer({ class: className })} {...rest}>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div
+      class="grid grid-cols-1 grid-rows-2 gap-8 md:grid-cols-4 md:grid-rows-1"
+    >
       <div class="space-y-4">
-        <h3 class="font-bold text-lg font-serif text-foreground">
-          Dr. Philosophy
+        <h3 class="text-foreground font-serif text-lg font-bold capitalize">
+          {title}
         </h3>
-        <p class="text-muted-foreground leading-relaxed">
-          Exploring fundamental questions about existence, consciousness, and morality through rigorous philosophical inquiry.
+        <p class="text-foreground leading-relaxed">
+          {body}
         </p>
         <div class="flex space-x-4">
-          <a class="text-muted-foreground hover:text-primary" href="mailto:contact@drphilosophy.com">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail h-5 w-5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          <a
+            class="hover:text-primary text-foreground"
+            href={`mailto:${email}`}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-mail h-5 w-5"
+              ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
+                d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
             </svg>
           </a>
-          <a class="text-muted-foreground hover:text-primary" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter h-5 w-5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a><a class="text-muted-foreground hover:text-primary" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin h-5 w-5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a class="text-muted-foreground hover:text-primary" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open h-5 w-5"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg></a></div></div><div class="space-y-4"><h4 class="font-semibold text-foreground">Academic Work</h4><div class="space-y-2"><a class="block text-muted-foreground hover:text-primary" href="/publications">Publications</a><a class="block text-muted-foreground hover:text-primary" href="/books">Books</a><a class="block text-muted-foreground hover:text-primary" href="/research">Research</a></div></div><div class="space-y-4"><h4 class="font-semibold text-foreground">Teaching</h4><div class="space-y-2"><a class="block text-muted-foreground hover:text-primary" href="/teaching">Current Courses</a><a class="block text-muted-foreground hover:text-primary" href="/syllabi">Syllabi</a><a class="block text-muted-foreground hover:text-primary" href="/office-hours">Office Hours</a></div></div><div class="space-y-4"><h4 class="font-semibold text-foreground">Connect</h4><div class="space-y-2"><a class="block text-muted-foreground hover:text-primary" href="/blog">Blog</a><a class="block text-muted-foreground hover:text-primary" href="/contact">Contact</a><a class="block text-muted-foreground hover:text-primary" href="/speaking">Speaking</a></div></div></div>
-
-  <div class="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
-    <p>&copy;  Dr. Philosophy. All rights reserved.</p>
-  </div>
+        </div>
+      </div><div class="space-y-4 md:col-start-4">
+        <h4 class="font-semibold text-emerald-950">Connect</h4><div
+          class="space-y-2"
+        >
+          {
+            resolvedLinks.map((link) => (
+              <a
+                id={`footer-link-${String(link.data.id)}`}
+                class="text-foreground hover:text-primary block capitalize"
+                href={link.data.href}
+              >
+                {link.data.label}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+    <div
+      class="border-border text-foreground mt-8 space-y-4 border-t pt-8 text-center"
+    >
+      <p>
+        &copy; <span class="capitalize">{title}</span>. All rights reserved.
+      </p>
+      <p class="text-pretty">
+        Designed and Developed by <a
+          class="underline underline-offset-4"
+          href="https://www.benbourgon.com">Ben Bourgon</a
+        >.
+      </p>
+    </div>
   </div>
 </footer>

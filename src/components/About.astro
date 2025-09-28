@@ -2,10 +2,42 @@
 /* About component */
 import type { HTMLAttributes } from "astro/types";
 interface Props extends HTMLAttributes<"section"> {}
+const { ...rest } = Astro.props;
 ---
-<section id="about">
-  <h2>About Me</h2>
-  <p>
-    I am a philosopher with interests in the philosophy of mind, epistemology, and ethics. I have published several papers and am currently working on a book.
-  </p>
+
+<section id="about" class="prose" {...rest}>
+  <div class="container margin-x-0 nm">
+    <h2 class="prose prose-h2">About Me</h2>
+    <p>
+      I am currently an instructor at Victoria College, at the University of
+      Toronto. Prior to this I was a postdoctoral fellow at the Institut für
+      Philosophie at Leibniz Universität Hannover on a project entitled "A
+      Philosophical Approach to Biasing Mechanisms in Scientific Research" and a
+      SSHRC sponsored postdoctoral fellow at the Institute for the History and
+      Philosophy of Science and Technology at the University of Toronto. Before
+      this, I completed my PhD at the University of Western Ontario in 2018. My
+      dissertation is entitled: A Pluralism Worth Having: Feyerabend’s
+      Well-Ordered Science (https://ir.lib.uwo.ca/etd/5599/) supervised by
+      Kathleen Ohruhlik. I am currently on the governing board of the Consortium
+      Socially Relevant Philosophy of/in Science and Engineering) and a North
+      American representative of the Forum for Advancing Science and Education
+      Through Philosophy (https://forumadvise.wordpress.com/). I was also on the
+      International Steering Committee for the Paul K. Feyerabend Centennial
+      Foundation (https://www.pkfcentennial.org/).
+    </p>
+    <p>
+      I was born in Ottawa, Ontario in 1990 and grew up just outside the city in
+      a small town called Constance Bay. I then moved to Newmarket, Ontario, a
+      suburb of Toronto, in 1997. I had many hobbies growing up from sport cars,
+      paleontology, astronomy, to music and sports. I competed in many kinds of
+      sports including baseball, basketball, and TaeKwon-Do where I earned my
+      3rd degree black belt (in 2006) and won the International championship in
+      Raleigh, North Carolina in 1999 (picture is of me after the tournament).
+      Later in life, I got into Brazilian Ju-Jitsu and Kickboxing. I also play
+      guitar, bass (not well), and have recorded about 20 songs (here is a link
+      to my SoundCloud), some originals and some covers, and have been 'working
+      on' (for about 15 years now) a concept album modelled after the Who's
+      masterpiece <span class="italic">Tommy</span>.
+    </p>
+  </div>
 </section>

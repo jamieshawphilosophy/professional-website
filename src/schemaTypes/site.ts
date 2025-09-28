@@ -5,8 +5,6 @@ export const siteSchema = z.object({
   description: z.string().max(160),
   title: z.string().min(2).max(100),
   ogImage: z.string().url(),
-  lightAndDarkMode: z.boolean(),
-  postPerPage: z.number().min(1).default(3),
 });
 
-export type Site = z.infer<typeof siteSchema>
+export type Site = z.infer<typeof siteSchema>;

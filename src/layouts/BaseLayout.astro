@@ -1,14 +1,12 @@
 ---
 import Head from "@components/Head.astro";
-import { SITE } from "@src/config.ts";
-import '../styles/starwind.css'
+import { SITE, LOCALE } from "@src/config.ts";
+import "../styles/starwind.css";
 ---
 
-<html lang="en">
-  <Head
-    data={SITE}
-  />
-  <body>
-    <slot/>
+<html lang={LOCALE.lang}>
+  <Head data={SITE} />
+  <body class="bg-background text-foreground font-sans">
+    <slot />
   </body>
 </html>

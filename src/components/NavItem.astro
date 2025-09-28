@@ -10,7 +10,13 @@ const { href, active } = Astro.props;
 ---
 
 <li>
-  <a href={href} class:list={[active ? "active" : ""]}>
+  <a
+    href={href}
+    class:list={[
+      "text-foreground hover:text-primary transition-colors duration-200",
+      active ? "font-semibold" : "font-normal",
+    ]}
+  >
     <slot />
   </a>
 </li>

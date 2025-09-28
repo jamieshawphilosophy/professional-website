@@ -8,5 +8,5 @@
     "Redirections",
     "stega"
   ],
-  "editor.defaultFormatter": "biomejs.biome"
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

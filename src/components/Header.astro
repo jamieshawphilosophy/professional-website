@@ -17,7 +17,6 @@ if (!Astro.props) {
 const headerNavRes = await getEntry(Astro.props.data.navigation);
 ---
 
-<header>
-  <h4 class="text-3xl text-emerald-900">{Astro.props.data.initials}</h4>
+<header class="relative">
   <HeaderNav data={headerNavRes.data} />
 </header>
