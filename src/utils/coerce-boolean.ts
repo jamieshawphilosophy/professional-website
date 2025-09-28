@@ -1,6 +1,6 @@
 // src/utils/coerce-boolean.ts
 
-import { z } from "zod";
+import { z } from "astro:content";
 export const coerceBoolean = (value: unknown): boolean => {
   if (typeof value === "boolean") return value;
   if (typeof value !== "string")

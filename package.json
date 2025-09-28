@@ -6,10 +6,10 @@
     "preinstall": "npx only-allow pnpm",
     "dev": "astro dev",
     "start": "astro start",
-    "build": "@biomejs/biome check --write ./src && astro check && astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "@biomejs/biome lint --write ./src && astro check"
+    "lint": "astro check"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
