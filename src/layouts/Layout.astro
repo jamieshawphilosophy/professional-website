@@ -1,22 +1,22 @@
 ---
-import {PUBLIC_SANITY_VISUAL_EDITING_ENABLED} from "astro:env/client";
-import { VisualEditing } from "@sanity/astro/visual-editing";
-export type props = {
-  title: string;
-};
-const { title } = Astro.props;
+import { getEntry } from "astro:content";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+const headerRes = await getEntry("headers", "primary");
+const footerRes = await getEntry("footers", "primary");
+if (!headerRes) {
+  throw new Error("Header query response not found");
+}
+if (!footerRes) {
+  throw new Error("Footer query response not found");
+}
+const headerData = headerRes.data;
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body>
+<Fragment>
+  <Header data={headerData} />
+  <main>
     <slot />
-    <VisualEditing enabled={PUBLIC_SANITY_VISUAL_EDITING_ENABLED} />
-  </body>
-</html>
+  </main>
+  <Footer data={footerRes} />
+</Fragment>

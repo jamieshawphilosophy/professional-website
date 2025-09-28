@@ -1,0 +1,22 @@
+---
+/* NavItem component */
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"li"> {
+  href: string;
+  active?: boolean;
+}
+const { href, active } = Astro.props;
+---
+
+<li>
+  <a
+    href={href}
+    class:list={[
+      "text-foreground hover:text-primary capitalize",
+      active ? "font-bold" : "",
+    ]}
+  >
+    <slot />
+  </a>
+</li>

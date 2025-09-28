@@ -1,0 +1,11 @@
+---
+name: primary
+links:
+  - label: home
+    href: "#"
+    active: true
+    external: false
+  - label: about
+    href: "#about"
+    active: true
+    external: false

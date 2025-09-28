@@ -1,0 +1,22 @@
+---
+/* Header component */
+/* Libraries */
+import { getEntry } from "astro:content";
+/* Types */
+import type { CollectionEntry } from "astro:content";
+import type { HTMLAttributes } from "astro/types";
+interface Props extends HTMLAttributes<"header"> {
+  data: CollectionEntry<"headers">["data"];
+}
+/* Components */
+import HeaderNav from "./HeaderNav.astro";
+
+if (!Astro.props) {
+  throw new Error("No header data provided to Header component");
+}
+const headerNavRes = await getEntry(Astro.props.data.navigation);
+---
+
+<header class="sticky top-0 z-50">
+  <HeaderNav data={headerNavRes.data} />
+</header>

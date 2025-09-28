@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from "astro:content";
+/* Header Navigation component */
+import type { HTMLAttributes } from "astro/types";
+import NavItem from "./NavItem.astro";
+interface Props extends HTMLAttributes<"nav"> {
+  data: CollectionEntry<"navigations">["data"];
+}
+const navItems = Astro.props.data.links;
+---
+
+<nav class="bg-background border-border z-50 border-b">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <ul class="flex h-16 items-center justify-between">
+      <li>
+        <a class="text-primary font-serif text-xl font-bold" href="/#">
+          Jamie Shaw
+        </a>
+      </li>
+      <li>
+        <ul class="flex gap-8">
+          {
+            navItems.map((item) => (
+              <NavItem href={item.href} active={item.active}>
+                {item.label}
+              </NavItem>
+            ))
+          }
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

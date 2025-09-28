@@ -1,17 +1,16 @@
 ---
-export const prerender=false;
-import { SITE_TITLE } from "src/consts";
+/* pages/index.astro */
+/* Libraries */
+import { getEntry } from "astro:content";
+import Hero from "@src/components/Hero.astro";
+import BaseLayout from "@src/layouts/BaseLayout.astro";
+import Layout from "@src/layouts/Layout.astro";
+const heroData = await getEntry("heroes", "home-hero");
+if (!heroData) throw new Error("heroData is null or undefined");
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{SITE_TITLE}</title>
-	</head>
-	<body>
-		<h1>{SITE_TITLE}</h1>
-	</body>
-</html>
+<BaseLayout>
+  <Layout>
+    <Hero data={heroData} />
+  </Layout>
+</BaseLayout>

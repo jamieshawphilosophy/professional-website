@@ -4,6 +4,8 @@
     "astro/tsconfigs/strictest",
     "@total-typescript/tsconfig/bundler/dom/app"
   ],
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
   "compilerOptions": {
     // Enable top-level await, and other modern ESM features.
     "target": "ESNext",
@@ -48,16 +50,17 @@
     // Report an error for unused labels instead of just a warning.
     "allowUnusedLabels": false,
     "experimentalDecorators": true,
-    "allowJs": true,
+    "allowJs": false,
+    "erasableSyntaxOnly": true,
     "baseUrl": ".",
     "paths": {
+      "@src/*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@pages/*": ["src/pages/*"],
       "@layouts/*": ["src/layouts/*"],
       "@images/*": ["src/images/*"],
       "@assets/*": ["public/assets/*"],
-      "@utils/*": ["src/utils/*"],
-      "@sanity/*": ["src/sanity/*"]
+      "@utils/*": ["src/utils/*"]
     }
   }
 }

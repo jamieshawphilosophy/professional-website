@@ -1,0 +1,29 @@
+---
+/* Head component */
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"head"> {
+  data: {
+    title: string;
+    description: string;
+    image?: string;
+    url?: string;
+    author?: string;
+  };
+}
+const { title, description } = Astro.props.data;
+/**
+todo: Add more meta tags, JSONL schema, open graph, etc.
+*/
+---
+
+<head>
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="generator" content={Astro.generator} />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Web analytics -->
+  <!-- Open Graph tags -->
+  <meta property="og:title" content={title} />
+</head>
