@@ -19,8 +19,7 @@ const { title, links, email } = data;
 const resolvedLinks = await getEntries(links);
 if (!resolvedLinks)
   throw new Error(
-    "could not resolve references to footer links, got",
-    resolvedLinks,
+    `Could not resolve references to footer links. Expected an array of link entries but received: ${JSON.stringify(resolvedLinks)}`
   );
 ---
 

@@ -10,6 +10,7 @@ import { navigationSchema } from "./schemaTypes/navigation.ts";
 import { researchInterestSchema } from "./schemaTypes/researchInterest.ts";
 import { linkSchema } from "./schemaTypes/link.ts";
 import { footerSchema } from "./schemaTypes/footer.ts";
+import { iconSchema } from "./schemaTypes/icon.ts";
 
 // 3. Define your collection(s)
 const headers = defineCollection({
@@ -42,6 +43,7 @@ const researchInterests = defineCollection({
 
 const icons = defineCollection({
   loader: glob({ pattern: "**/*.yaml", base: "./src/content/icons" }),
+  schema: iconSchema,
 });
 
 const links = defineCollection({

@@ -4,16 +4,19 @@
 import type { CollectionEntry } from "astro:content";
 import type { HTMLAttributes } from "astro/types";
 interface Props extends HTMLAttributes<"section"> {
-  data: CollectionEntry<"researchInterests">[]
+  data: CollectionEntry<"researchInterests">[];
 }
 
-const researchInterestsCollection = Astro.props.data
+const researchInterestsCollection = Astro.props.data;
 ---
+
 <section id="research">
   <h2>Research Interests</h2>
   <ul>
-    {researchInterestsCollection.map((interest) =>{
-      
-    })}
+    {
+      researchInterestsCollection.map((interest) => {
+        return <li>{interest.data.title}</li>;
+      })
+    }
   </ul>
 </section>
