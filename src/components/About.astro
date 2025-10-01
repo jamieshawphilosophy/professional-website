@@ -5,7 +5,7 @@ import type { HTMLAttributes } from "astro/types";
 import Card from "./starwind/card/Card.astro";
 import { Image } from "astro:assets";
 interface Props extends HTMLAttributes<"section"> {
-  data: CollectionEntry<"about">;
+  data: CollectionEntry<"aboutSections">;
 }
 const { data, ...rest } = Astro.props;
 const { aboutImage, aboutImageAlt } = data.data;
