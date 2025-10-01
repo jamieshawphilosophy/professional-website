@@ -1,11 +1,10 @@
 /* content.config.ts */
 /* Astro utilities */
-import { defineCollection } from "astro:content";
+import { defineCollection, z } from "astro:content";
 /* Astro loader */
 import { glob } from "astro/loaders";
 /* Schema */
 import { headerSchema } from "./schemaTypes/header.ts";
-import { heroSchema } from "./schemaTypes/hero.ts";
 import { navigationSchema } from "./schemaTypes/navigation.ts";
 import { researchInterestSchema } from "./schemaTypes/researchInterest.ts";
 import { linkSchema } from "./schemaTypes/link.ts";
@@ -30,7 +29,17 @@ const navigations = defineCollection({
 
 const heroes = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/heroes/" }),
-  schema: heroSchema,
+  schema: ({ image }) =>
+    z.object({
+      featuredImage: image(),
+      featuredImageAlt: z.string().min(1),
+      title: z.string().min(2).max(100),
+      subtitle: z.string().min(2).max(100),
+      cv: z.object({
+        src: z.string().url().or(z.string().startsWith("./")),
+        label: z.string(),
+      }),
+    }),
 });
 
 const researchInterests = defineCollection({
