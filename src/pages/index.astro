@@ -5,6 +5,7 @@ import { getEntry } from "astro:content";
 import Hero from "@src/components/Hero.astro";
 import BaseLayout from "@src/layouts/BaseLayout.astro";
 import Layout from "@src/layouts/Layout.astro";
+import About from "@src/components/About.astro";
 const heroData = await getEntry("heroes", "home-hero");
 if (!heroData) throw new Error("heroData is null or undefined");
 ---
@@ -12,5 +13,6 @@ if (!heroData) throw new Error("heroData is null or undefined");
 <BaseLayout>
   <Layout>
     <Hero data={heroData} />
+    <About />
   </Layout>
 </BaseLayout>

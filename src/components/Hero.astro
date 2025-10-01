@@ -44,11 +44,13 @@ const { title, subtitle, featuredImage, featuredImageAlt, cv } = heroEntry.data;
           </Button>
         </div>
       </div>
-      <Card
-        class="bg-background flex flex-col gap-6 rounded-xl border p-8 shadow-sm"
-      >
-        <Image src={featuredImage} alt={featuredImageAlt} class="h-auto w-full rounded-lg shadow-lg" />
-      <div></div>
+      <Card class="bg-background flex flex-col rounded-xl border p-8 shadow-sm">
+        <Image
+          src={featuredImage}
+          alt={featuredImageAlt}
+          class="h-auto w-full rounded-lg shadow-lg"
+        />
+        <div></div>
       </Card>
     </div>
   </div>
