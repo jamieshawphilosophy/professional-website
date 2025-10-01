@@ -1,8 +1,7 @@
 ---
 name: home-hero
-featuredImage:
-  src: "./src/images/jamie-shaw-og-square.jpg"
-  alt: "headshot of Jamie Shaw"
+featuredImage: "../../images/jamie-shaw-og-square.jpg"
+featuredImageAlt: "headshot of Jamie Shaw"
 title: jamie shaw
 subtitle: philosophy
 cv:

@@ -2,6 +2,7 @@
 /* Hero section */
 /* Components */
 import MoveUpRight from "@lucide/astro/icons/move-up-right";
+import { Image } from "astro:assets";
 import Button from "./starwind/button/Button.astro";
 import Card from "./starwind/card/Card.astro";
 /* Types */
@@ -13,7 +14,7 @@ interface Props extends HTMLAttributes<"section"> {
 }
 const heroEntry = Astro.props.data;
 const body = heroEntry.body;
-const { title, subtitle, featuredImage, cv } = heroEntry.data;
+const { title, subtitle, featuredImage, featuredImageAlt, cv } = heroEntry.data;
 ---
 
 <section class="py-20" id="hero-section">
@@ -27,8 +28,10 @@ const { title, subtitle, featuredImage, cv } = heroEntry.data;
           <span class="text-primary">{subtitle}</span>
         </h1>
         {
-          body ? (
-            <p class="text-foreground text-xl leading-relaxed">{body}</p>
+          body !== undefined ? (
+            <p class="text-foreground text-xl leading-relaxed text-balance">
+              {body}
+            </p>
           ) : null
         }
         <div class="flex flex-col lg:max-w-42">
@@ -44,11 +47,8 @@ const { title, subtitle, featuredImage, cv } = heroEntry.data;
       <Card
         class="bg-background flex flex-col gap-6 rounded-xl border p-8 shadow-sm"
       >
-        <img
-          class="h-auto w-full rounded-lg shadow-lg"
-          src={featuredImage.src}
-          alt={featuredImage.alt}
-        />
+        <Image src={featuredImage} alt={featuredImageAlt} class="h-auto w-full rounded-lg shadow-lg" />
+      <div></div>
       </Card>
     </div>
   </div>
