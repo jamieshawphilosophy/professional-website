@@ -28,8 +28,10 @@ const { title, subtitle, featuredImage, featuredImageAlt, cv } = heroEntry.data;
           <span class="text-primary">{subtitle}</span>
         </h1>
         {
-          body ? (
-            <p class="text-foreground text-xl leading-relaxed">{body}</p>
+          body !== undefined ? (
+            <p class="text-foreground text-xl leading-relaxed text-balance">
+              {body}
+            </p>
           ) : null
         }
         <div class="flex flex-col lg:max-w-42">

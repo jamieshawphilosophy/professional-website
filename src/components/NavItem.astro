@@ -10,13 +10,7 @@ const { href, active } = Astro.props;
 ---
 
 <li>
-  <a
-    href={href}
-    class:list={[
-      "text-foreground hover:text-primary capitalize",
-      active ? "font-bold" : "",
-    ]}
-  >
+  <a href={href} class:list={["text-foreground hover:text-primary capitalize"]}>
     <slot />
   </a>
 </li>
