@@ -1,13 +1,19 @@
 ---
 /* About component */
+import type { CollectionEntry } from "astro:content";
 import type { HTMLAttributes } from "astro/types";
-interface Props extends HTMLAttributes<"section"> {}
-const { ...rest } = Astro.props;
+import Card from "./starwind/card/Card.astro";
+import { Image } from "astro:assets";
+interface Props extends HTMLAttributes<"section"> {
+  data: CollectionEntry<"about">;
+}
+const { data, ...rest } = Astro.props;
+const { aboutImage, aboutImageAlt } = data.data;
 ---
 
-<section id="about" class="prose" {...rest}>
-  <div class="container margin-x-0">
-    <h2 class="prose prose-h2">About Me</h2>
+<section id="about" class="bg-muted/30 py-20 font-serif" {...rest}>
+  <div class="prose prose-img:my-0 container mx-auto px-4 sm:px-6 lg:text-lg">
+    <h2 class="">About Me</h2>
     <p>
       I am currently an instructor at Victoria College, at the University of
       Toronto. Prior to this I was a postdoctoral fellow at the Institut für
@@ -16,28 +22,40 @@ const { ...rest } = Astro.props;
       SSHRC sponsored postdoctoral fellow at the Institute for the History and
       Philosophy of Science and Technology at the University of Toronto. Before
       this, I completed my PhD at the University of Western Ontario in 2018. My
-      dissertation is entitled: A Pluralism Worth Having: Feyerabend’s
-      Well-Ordered Science (https://ir.lib.uwo.ca/etd/5599/) supervised by
-      Kathleen Ohruhlik. I am currently on the governing board of the Consortium
-      Socially Relevant Philosophy of/in Science and Engineering) and a North
-      American representative of the Forum for Advancing Science and Education
-      Through Philosophy (https://forumadvise.wordpress.com/). I was also on the
-      International Steering Committee for the Paul K. Feyerabend Centennial
-      Foundation (https://www.pkfcentennial.org/).
+      dissertation is entitled: <a href="https://ir.lib.uwo.ca/etd/5599"
+        >A Pluralism Worth Having: Feyerabend's Well-Ordered Science</a
+      > supervised by Kathleen Ohruhlik. I am currently on the governing board of
+      the Consortium Socially Relevant Philosophy of/in Science and Engineering)
+      and a North American representative of the <a
+        href="https://forumadvise.wordpress.com/"
+        >Forum for Advancing Science and Education Through Philosophy</a
+      >. I was also on the International Steering Committee for the <a
+        href="https://www.pkfcentennial.org/"
+        >Paul K. Feyerabend Centennial Foundation</a
+      >.
     </p>
-    <p>
-      I was born in Ottawa, Ontario in 1990 and grew up just outside the city in
-      a small town called Constance Bay. I then moved to Newmarket, Ontario, a
-      suburb of Toronto, in 1997. I had many hobbies growing up from sport cars,
-      paleontology, astronomy, to music and sports. I competed in many kinds of
-      sports including baseball, basketball, and TaeKwon-Do where I earned my
-      3rd degree black belt (in 2006) and won the International championship in
-      Raleigh, North Carolina in 1999 (picture is of me after the tournament).
-      Later in life, I got into Brazilian Ju-Jitsu and Kickboxing. I also play
-      guitar, bass (not well), and have recorded about 20 songs (here is a link
-      to my SoundCloud), some originals and some covers, and have been 'working
-      on' (for about 15 years now) a concept album modelled after the Who's
-      masterpiece <span class="italic">Tommy</span>.
-    </p>
+
+    <Card class="bg-muted/30 mx-auto max-w-xl p-8 sm:w-[50%]">
+      <Image
+        src={aboutImage}
+        alt={aboutImageAlt}
+        class="h-auto rounded-lg shadow-lg"
+      />
+    </Card>
+    <p></p>
+    I was born in Ottawa, Ontario in 1990 and grew up just outside the city in a
+    small town called Constance Bay. I then moved to Newmarket, Ontario, a suburb
+    of Toronto, in 1997. I had many hobbies growing up from sport cars, paleontology,
+    astronomy, to music and sports. I competed in many kinds of sports including
+    baseball, basketball, and TaeKwon-Do where I earned my 3rd degree black belt
+    (in 2006) and won the International championship in Raleigh, North Carolina in
+    1999 (picture is of me after the tournament). Later in life, I got into Brazilian
+    Ju-Jitsu and Kickboxing. I also play guitar, bass (not well), and have recorded
+    about 20 songs (here is a link to <a
+      href="https://soundcloud.com/jamie-shaw-973399602">my SoundCloud</a
+    >), some originals and some covers, and have been 'working on' (for about 15
+    years now) a concept album modelled after the Who's masterpiece <span
+      class="italic">Tommy</span
+    >.
   </div>
 </section>

@@ -7,12 +7,14 @@ import BaseLayout from "@src/layouts/BaseLayout.astro";
 import Layout from "@src/layouts/Layout.astro";
 import About from "@src/components/About.astro";
 const heroData = await getEntry("heroes", "home-hero");
+const aboutData = await getEntry("aboutSections", "home-about");
 if (!heroData) throw new Error("heroData is null or undefined");
+if (!aboutData) throw new Error("aboutData is null or undefined");
 ---
 
 <BaseLayout>
   <Layout>
     <Hero data={heroData} />
-    <About />
+    <About data={aboutData} />
   </Layout>
 </BaseLayout>

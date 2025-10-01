@@ -60,8 +60,18 @@ const links = defineCollection({
   schema: linkSchema,
 });
 
+const aboutSections = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/about/" }),
+  schema: ({ image }) =>
+    z.object({
+      aboutImage: image(),
+      aboutImageAlt: z.string().min(1),
+    }),
+});
+
 // Export a single `collections` object to register collections
 export const collections = {
+  aboutSections,
   headers,
   footers,
   navigations,
