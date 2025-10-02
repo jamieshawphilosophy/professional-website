@@ -5,7 +5,7 @@ featuredImageAlt: "headshot of Jamie Shaw"
 title: jamie shaw
 subtitle: philosophy
 cv:
-  src: "./src/files/cv.pdf"
+  src: "./cv.pdf"
   label: "my CV"
 ---
 
